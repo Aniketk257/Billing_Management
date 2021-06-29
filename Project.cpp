@@ -4,7 +4,16 @@
 
 // // #include <windows.h>
 #include <bits/stdc++.h>
+#include <conio.h>
 using namespace std;
+enum IN
+{
+    // 13 is ASCII for carriage
+    // return
+    IN_BACK = 8,
+    IN_RET = 13
+
+};
 
 // //***************************************************************
 // //                   CLASS USED IN PROJECT
@@ -71,7 +80,49 @@ product pr;
 //***************************************************************
 //    	function to write in file
 //****************************************************************
+// Function that accepts the password
+string takePasswdFromUser(char sp = '*')
+{
+    // Stores the password
+    string passwd = "";
+    char ch_ipt;
 
+    // Until condition is true
+    while (true)
+    {
+
+        ch_ipt = getch();
+
+        // if the ch_ipt
+        if (ch_ipt == IN::IN_RET)
+        {
+            cout << endl;
+            return passwd;
+        }
+        else if (ch_ipt == IN::IN_BACK && passwd.length() != 0)
+        {
+            passwd.pop_back();
+
+            // Cout statement is very
+            // important as it will erase
+            // previously printed character
+            cout << "\b \b";
+
+            continue;
+        }
+
+        // Without using this, program
+        // will crash as \b can't be
+        // print in beginning of line
+        else if (ch_ipt == IN::IN_BACK && passwd.length() == 0)
+        {
+            continue;
+        }
+
+        passwd.push_back(ch_ipt);
+        cout << sp;
+    }
+}
 void write_product()
 {
     fp.open("Shop.dat", ios::out | ios::app);
@@ -212,6 +263,7 @@ void place_order()
     int order_arr[50], quan[50], c = 0;
     float amt, damt, total = 0;
     char ch = 'Y';
+    //Ask Customer for Name and Phone Number. //Oniket
     menu();
     cout << "\n============================";
     cout << "\n    PLACE YOUR ORDER";
@@ -265,24 +317,27 @@ void intro()
     cout << "\t\t\t\t\t\t\tSUPER MARKET\n\n";
     cout << "\t\t\t\t\t\t\tBILLING";
     // Input customer details
-    string name;
-    string name2;
-    getline(cin, name);
-    getline(cin, name2);
-    cout << "\n\n\t" << name;
-    cout << "\n\n\t ROLL NO. : 26621216";
-    cout << "\n\n\tSCHOOL : GITARATTAN JINDAL PUBLIC SCHOOL";
+    // string name;
+    // string name2;
+    // long phno;
+    // cout << "\n\n\t Please Enter Customer Name: ";
+    // getline(cin, name);
+    // getline(cin, name2);
+    // cout << "\n\n\t" << name;
+    // cout << "\n\n\t Phone Number: ";
+    // cin>>phno;
+    // cout << "\n\n\tSCHOOL : GITARATTAN JINDAL PUBLIC SCHOOL";
 }
 // //***************************************************************
 // //    	ADMINSTRATOR MENU FUNCTION
 // //****************************************************************
 void admin_menu()
-{
+{ //Add pass word for admin login //Oniket
     int ch2;
     cout << "\n\n\n\tADMIN MENU";
     cout << "\n\n\t1.CREATE PRODUCT";
     cout << "\n\n\t2.DISPLAY ALL PRODUCTS";
-    cout << "\n\n\t3.QUERY ";
+    cout << "\n\n\t3.QUERY "; //will show details of a specific product of input number
     cout << "\n\n\t4.MODIFY PRODUCT";
     cout << "\n\n\t5.DELETE PRODUCT";
     cout << "\n\n\t6.VIEW PRODUCT MENU";
@@ -344,6 +399,8 @@ int main()
 
             break;
         case 2:
+            string input = takePasswdFromUser();
+            cout << input << endl;
             admin_menu();
             break;
         case 3:
