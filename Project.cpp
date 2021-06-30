@@ -86,7 +86,7 @@ string takePasswdFromUser(char sp = '*')
     // Stores the password
     string passwd = "";
     char ch_ipt;
-
+    cout << "Enter password: ";
     // Until condition is true
     while (true)
     {
@@ -333,46 +333,55 @@ void intro()
 // //****************************************************************
 void admin_menu()
 { //Add pass word for admin login //Oniket
-    int ch2;
-    cout << "\n\n\n\tADMIN MENU";
-    cout << "\n\n\t1.CREATE PRODUCT";
-    cout << "\n\n\t2.DISPLAY ALL PRODUCTS";
-    cout << "\n\n\t3.QUERY "; //will show details of a specific product of input number
-    cout << "\n\n\t4.MODIFY PRODUCT";
-    cout << "\n\n\t5.DELETE PRODUCT";
-    cout << "\n\n\t6.VIEW PRODUCT MENU";
-    cout << "\n\n\t7.BACK TO MAIN MENU";
-    cout << "\n\n\tPlease Enter Your Choice (1-7) ";
-    cin >> ch2;
-
-    switch (ch2)
+    string inp = takePasswdFromUser();
+    if (inp == "admin101")
     {
-    case 1:
-        write_product();
-        break;
-    case 2:
-        display_all();
-        break;
-    case 3:
-        int num;
-        cout << "\n\n\tPlease Enter The Product No. ";
-        cin >> num;
-        display_sp(num);
-        break;
-    case 4:
-        modify_product();
-        break;
-    case 5:
-        delete_product();
-        break;
-    case 6:
-        menu();
+        int ch2;
+        cout << "\n\n\n\tADMIN MENU";
+        cout << "\n\n\t1.CREATE PRODUCT";
+        cout << "\n\n\t2.DISPLAY ALL PRODUCTS";
+        cout << "\n\n\t3.QUERY "; //will show details of a specific product of input number
+        cout << "\n\n\t4.MODIFY PRODUCT";
+        cout << "\n\n\t5.DELETE PRODUCT";
+        cout << "\n\n\t6.VIEW PRODUCT MENU";
+        cout << "\n\n\t7.BACK TO MAIN MENU";
+        cout << "\n\n\tPlease Enter Your Choice (1-7) ";
+        cin >> ch2;
 
-    case 7:
-        break;
-    default:
-        cout << "\a";
-        admin_menu();
+        switch (ch2)
+        {
+        case 1:
+            write_product();
+            break;
+        case 2:
+            display_all();
+            break;
+        case 3:
+            int num;
+            cout << "\n\n\tPlease Enter The Product No. ";
+            cin >> num;
+            display_sp(num);
+            break;
+        case 4:
+            modify_product();
+            break;
+        case 5:
+            delete_product();
+            break;
+        case 6:
+            menu();
+
+        case 7:
+            break;
+        default:
+            cout << "\a";
+            admin_menu();
+        }
+    }
+    else
+    {
+        cout << "Incorrect Password" << endl;
+        exit(0);
     }
 }
 
@@ -399,12 +408,12 @@ int main()
 
             break;
         case 2:
-            string input = takePasswdFromUser();
-            cout << input << endl;
+
             admin_menu();
             break;
         case 3:
             exit(0);
+            break;
         default:
             cout << "\a";
         }
