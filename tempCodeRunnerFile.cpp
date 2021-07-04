@@ -1,1 +1,1 @@
-cout << "\n\n\tSCHOOL : GITARATTAN JINDAL PUBLIC SCHOOL";
+place_order

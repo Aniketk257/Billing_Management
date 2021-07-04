@@ -23,16 +23,24 @@ class product
 {
     int pno;
     string name;
-    ;
     float price, qty, tax, dis;
 
 public:
+    product()
+    {
+        pno = 0;
+        name = "";
+        price = qty = tax = dis = 0.0;
+    }
     void create_product()
     {
         cout << "\nPlease Enter The Product No. of The Product ";
         cin >> pno;
         cout << "\n\nPlease Enter The Name of The Product ";
         cin >> name;
+        // for (int i = name.length() - 1; i <= 20; i++)
+        //     name += " ";
+        cout << name << "1" << endl;
         cout << "\nPlease Enter The Price of The Product ";
         cin >> price;
         cout << "\nPlease Enter The Discount (%) ";
@@ -75,6 +83,7 @@ public:
 //****************************************************************
 
 fstream fp;
+// fstream fp2;
 product pr;
 
 //***************************************************************
@@ -263,18 +272,25 @@ void place_order()
     int order_arr[50], quan[50], c = 0;
     float amt, damt, total = 0;
     char ch = 'Y';
+
     //Ask Customer for Name and Phone Number. //Oniket
     menu();
+    // fp.open("Shop.dat", ios::in);
+    // fp.read((char *)&pr, sizeof(product));
     cout << "\n============================";
     cout << "\n    PLACE YOUR ORDER";
     cout << "\n============================\n";
+    fstream fp2;
+    fp2.open("invoice.txt", ios::out | ios::app);
     do
     {
         cout << "\n\nEnter The Product No. Of The Product : ";
         cin >> order_arr[c];
         cout << "\nQuantity in number : ";
         cin >> quan[c];
+        // fp2 << order_arr[c] << "\t" << pr.retname() << "\t" << quan[c] << "\n";
         c++;
+
         cout << "\nDo You Want To Order Another Product ? (y/n)";
         cin >> ch;
     } while (ch == 'y' || ch == 'Y');
@@ -282,7 +298,7 @@ void place_order()
 
     cout << "\n\n********************************INVOICE************************\n";
     cout << "\nPr No.\tPr Name\tQuantity \tPrice \tAmount \tAmount after discount\n";
-    for (int x = 0; x <= c; x++)
+    for (int x = 0; x < c; x++)
     {
         fp.open("Shop.dat", ios::in);
         fp.read((char *)&pr, sizeof(product));
@@ -294,6 +310,8 @@ void place_order()
                 damt = amt - (amt * pr.retdis() / 100);
                 cout << "\n"
                      << order_arr[x] << "\t" << pr.retname() << "\t" << quan[x] << "\t\t" << pr.retprice() << "\t" << amt << "\t\t" << damt;
+                fp2 << "\n"
+                    << order_arr[x] << "\t" << pr.retname() << "\t" << quan[x] << "\t\t" << pr.retprice() << "\t" << amt << "\t\t" << damt;
                 total += damt;
             }
             fp.read((char *)&pr, sizeof(product));
