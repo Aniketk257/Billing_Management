@@ -251,14 +251,15 @@ void menu()
         exit(0);
     }
 
-    cout << "\n\n\t\tProduct MENU\n\n";
-    cout << "====================================================\n";
-    cout << "P.NO.\t\tNAME\t\tPRICE\n";
-    cout << "====================================================\n";
+    cout << "\n\n"
+         << setw(75) << "Product MENU\n\n";
+    cout << setw(94) << "====================================================\n";
+    cout << setw(40) << "Product No." << setw(40) << "Product Name" << setw(40) << "Price\n";
+    cout << setw(94) << "====================================================\n";
 
     while (fp.read((char *)&pr, sizeof(product)))
     {
-        cout << pr.retpno() << "\t\t" << pr.retname() << "\t\t" << pr.retprice() << endl;
+        cout << setw(50) << pr.retpno() << setw(25) << pr.retname() << setw(25) << pr.retprice() << endl;
     }
     fp.close();
 }
@@ -311,7 +312,8 @@ void place_order()
                 cout << "\n"
                      << order_arr[x] << "\t" << pr.retname() << "\t" << quan[x] << "\t\t" << pr.retprice() << "\t" << amt << "\t\t" << damt;
                 fp2 << "\n"
-                    << order_arr[x] << "\t" << pr.retname() << "\t" << quan[x] << "\t\t" << pr.retprice() << "\t" << amt << "\t\t" << damt;
+                    << setw(10)
+                    << order_arr[x] << setw(10) << "\t" << setw(10) << pr.retname() << "\t" << setw(10) << quan[x] << "\t\t" << setw(10) << pr.retprice() << "\t" << setw(10) << amt << "\t\t" << damt;
                 total += damt;
             }
             fp.read((char *)&pr, sizeof(product));
@@ -320,6 +322,7 @@ void place_order()
         fp.close();
     }
     cout << "\n\n\t\t\t\t\tTOTAL = " << total;
+    fp2 << "\n\n\t\t\t\t\tTOTAL = " << total;
 }
 // void gotoxy(short x, short y)
 // {
