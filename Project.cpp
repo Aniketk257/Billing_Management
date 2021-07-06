@@ -253,9 +253,11 @@ void menu()
 
     cout << "\n\n"
          << setw(75) << "Product MENU\n\n";
-    cout << setw(94) << "====================================================\n";
-    cout << setw(40) << "Product No." << setw(40) << "Product Name" << setw(40) << "Price\n";
-    cout << setw(94) << "====================================================\n";
+    cout << "\t\t\t\t"
+         << "========================================================================\n";
+    cout << setw(50) << "Product No." << setw(25) << "Product Name" << setw(25) << "Price\n";
+    cout << "\t\t\t\t"
+         << "========================================================================\n";
 
     while (fp.read((char *)&pr, sizeof(product)))
     {
@@ -282,7 +284,7 @@ void place_order()
     cout << "\n    PLACE YOUR ORDER";
     cout << "\n============================\n";
     fstream fp2;
-    fp2.open("invoice.txt", ios::out | ios::app);
+    fp2.open("invoice.txt", ios::out | ios::trunc);
     do
     {
         cout << "\n\nEnter The Product No. Of The Product : ";
@@ -297,8 +299,13 @@ void place_order()
     } while (ch == 'y' || ch == 'Y');
     cout << "\n\nThank You For Placing The Order";
 
-    cout << "\n\n********************************INVOICE************************\n";
-    cout << "\nPr No.\tPr Name\tQuantity \tPrice \tAmount \tAmount after discount\n";
+    cout << "\n\n\t\t\t********************************INVOICE********************************\n";
+    cout << setw(10) << "Pr No." << setw(20) << "Pr Name" << setw(10) << "Qty" << setw(10) << "MRP"
+         << setw(10) << "Amount" << setw(15) << "Final Amount";
+
+    fp2 << "\n\n\t\t\t********************************INVOICE********************************\n";
+    fp2 << setw(10) << "Pr No." << setw(20) << "Pr Name" << setw(10) << "Qty" << setw(10) << "MRP"
+        << setw(10) << "Amount" << setw(15) << "Final Amount";
     for (int x = 0; x < c; x++)
     {
         fp.open("Shop.dat", ios::in);
@@ -309,11 +316,14 @@ void place_order()
             {
                 amt = pr.retprice() * quan[x];
                 damt = amt - (amt * pr.retdis() / 100);
+                // cout << "\n"
+                //      << order_arr[x] << "\t" << pr.retname() << "\t" << quan[x] << "\t\t" << pr.retprice() << "\t" << amt << "\t\t" << damt;
                 cout << "\n"
-                     << order_arr[x] << "\t" << pr.retname() << "\t" << quan[x] << "\t\t" << pr.retprice() << "\t" << amt << "\t\t" << damt;
+                     << setw(10) << order_arr[x] << setw(20) << pr.retname() << setw(10) << quan[x] << setw(10) << pr.retprice()
+                     << setw(10) << amt << setw(10) << damt;
                 fp2 << "\n"
-                    << setw(10)
-                    << order_arr[x] << setw(10) << "\t" << setw(10) << pr.retname() << "\t" << setw(10) << quan[x] << "\t\t" << setw(10) << pr.retprice() << "\t" << setw(10) << amt << "\t\t" << damt;
+                    << setw(10) << order_arr[x] << setw(20) << pr.retname() << setw(10) << quan[x] << setw(10) << pr.retprice()
+                    << setw(10) << amt << setw(10) << damt;
                 total += damt;
             }
             fp.read((char *)&pr, sizeof(product));
@@ -321,7 +331,8 @@ void place_order()
 
         fp.close();
     }
-    cout << "\n\n\t\t\t\t\tTOTAL = " << total;
+    cout << "\n\n\t\t\t\t\tTOTAL = " << total << "\n\n";
+    cout << "Please collect Your printable invoice from the .txt file." << endl;
     fp2 << "\n\n\t\t\t\t\tTOTAL = " << total;
 }
 // void gotoxy(short x, short y)

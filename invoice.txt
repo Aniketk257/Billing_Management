@@ -1,8 +1,9 @@
-                                                 --Invoice--
 
-Product Number        Product Name      Quantity              Price        Total           Final
-       101         	     khaas	        50		       999	     49950		4995
-       102         	   haseena	       100		       899	     89900		899
-       103         	haldiraaaams	        50		      1000	     50000		25000
 
-					TOTAL = 25000
+			********************************INVOICE********************************
+    Pr No.             Pr Name       Qty       MRP    Amount   Final Amount
+       101               khaas         5       999      4995     499.5
+       102             haseena         4       899      3596     35.96
+       103        haldiraaaams        56      1000     56000     28000
+
+					TOTAL = 28535.5
