@@ -40,7 +40,7 @@ public:
         cin >> name;
         // for (int i = name.length() - 1; i <= 20; i++)
         //     name += " ";
-        cout << name << "1" << endl;
+        // cout << name << "1" << endl;
         cout << "\nPlease Enter The Price of The Product ";
         cin >> price;
         cout << "\nPlease Enter The Discount (%) ";
@@ -346,8 +346,8 @@ void place_order()
 
 void intro()
 {
-    cout << "\t\t\t\t\t\t\tSUPER MARKET\n\n";
-    cout << "\t\t\t\t\t\t\tBILLING";
+    cout << "\t\t\t\t\t\t     EVERYDAY SUPER MARKET\n\n";
+    cout << "\t\t\t\t\t\t\tBILLING SYSTEM";
     // Input customer details
     // string name;
     // string name2;
