@@ -1,9 +1,14 @@
 
 
 			********************************INVOICE********************************
-    Pr No.             Pr Name       Qty       MRP    Amount   Final Amount
-       101               khaas         5       999      4995     499.5
-       102             haseena         4       899      3596     35.96
-       103        haldiraaaams        56      1000     56000     28000
 
-					TOTAL = 28535.5
+
+     Customer Name: Abc xyz
+     Mobile Number: 100100
+
+
+    Pr No.             Pr Name       Qty       MRP    Amount   Final Amount
+       102             haseena        20       899     17980     179.8
+       103        haldiraaaams        20      1000     20000     10000
+
+					TOTAL = 10179.8

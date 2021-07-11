@@ -277,6 +277,13 @@ void place_order()
     char ch = 'Y';
 
     //Ask Customer for Name and Phone Number. //Oniket
+    cout << "Enter customer's name: ";
+    string cust_name;
+    cin.ignore();
+    getline(cin, cust_name);
+    cout << "Enter customer's mobile number: ";
+    long mb_no = 0;
+    cin >> mb_no;
     menu();
     // fp.open("Shop.dat", ios::in);
     // fp.read((char *)&pr, sizeof(product));
@@ -303,7 +310,10 @@ void place_order()
     cout << setw(10) << "Pr No." << setw(20) << "Pr Name" << setw(10) << "Qty" << setw(10) << "MRP"
          << setw(10) << "Amount" << setw(15) << "Final Amount";
 
-    fp2 << "\n\n\t\t\t********************************INVOICE********************************\n";
+    fp2 << "\n\n\t\t\t********************************INVOICE********************************\n\n\n";
+
+    fp2 << setw(20) << "Customer Name: " << cust_name << '\n';
+    fp2 << setw(20) << "Mobile Number: " << mb_no << "\n\n\n";
     fp2 << setw(10) << "Pr No." << setw(20) << "Pr Name" << setw(10) << "Qty" << setw(10) << "MRP"
         << setw(10) << "Amount" << setw(15) << "Final Amount";
     for (int x = 0; x < c; x++)
