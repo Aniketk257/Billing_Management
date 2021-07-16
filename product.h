@@ -1,8 +1,5 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
-// //***************************************************************
-// //                   CLASS USED IN PROJECT
-// //****************************************************************
 
 class product
 {
@@ -22,10 +19,8 @@ public:
         cout << "\nPlease Enter The Product No. of The Product ";
         cin >> pno;
         cout << "\n\nPlease Enter The Name of The Product ";
-        cin >> name;
-        // for (int i = name.length() - 1; i <= 20; i++)
-        //     name += " ";
-        // cout << name << "1" << endl;
+        cin.ignore();
+        getline(cin, name);
         cout << "\nPlease Enter The Price of The Product ";
         cin >> price;
         cout << "\nPlease Enter The Discount (%) ";

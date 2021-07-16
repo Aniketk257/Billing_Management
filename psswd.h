@@ -11,7 +11,7 @@ enum IN
 
 };
 // Function that accepts the password
-string takePasswdFromUser(char sp = '*')
+int takePasswdFromUser(char sp = '*')
 {
     // Stores the password
     string passwd = "";
@@ -27,7 +27,10 @@ string takePasswdFromUser(char sp = '*')
         if (ch_ipt == IN::IN_RET)
         {
             cout << endl;
-            return passwd;
+            if (passwd == "admin101")
+                return 1;
+            else
+                return 0;
         }
         else if (ch_ipt == IN::IN_BACK && passwd.length() != 0)
         {

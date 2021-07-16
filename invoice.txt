@@ -3,12 +3,11 @@
 			********************************INVOICE********************************
 
 
-     Customer Name: Abc xyz
-     Mobile Number: 100100
+     Customer Name: Aarushi Srivastava
+     Mobile Number: 8920475765
 
 
     Pr No.             Pr Name       Qty       MRP    Amount   Final Amount
-       102             haseena        20       899     17980     179.8
-       103        haldiraaaams        20      1000     20000     10000
+       101               khaas         1       999       999      99.9
 
-					TOTAL = 10179.8
+					TOTAL = 99.9
