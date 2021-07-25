@@ -1,6 +1,4 @@
 #include <bits/stdc++.h>
-// #include "Customer.h"
-// #include "psswd.h"
 #include "Admin.h"
 using namespace std;
 
