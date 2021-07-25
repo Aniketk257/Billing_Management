@@ -3,11 +3,11 @@
 			********************************INVOICE********************************
 
 
-     Customer Name: Aarushi Srivastava
-     Mobile Number: 8920475765
+     Customer Name: Narendra Gandhi
+     Mobile Number: 8112016
 
 
     Pr No.             Pr Name       Qty       MRP    Amount   Final Amount
-       101               khaas         1       999       999      99.9
+       104     Gremlin Plushie         3       599      1797    1617.3
 
-					TOTAL = 99.9
+					TOTAL = 1617.3
